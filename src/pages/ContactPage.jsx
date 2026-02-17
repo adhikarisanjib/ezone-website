@@ -1,4 +1,5 @@
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
 import { toast } from "react-toastify";
 
@@ -10,22 +11,72 @@ const ContactPage = () => {
     company: "",
     message: "",
   });
+  const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const formParams = {
+    emailJsServiceId: import.meta.env.VITE_EMAILJS_SERVICE_ID,
+    emailJsTemplateId: import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+    emailJsUserId: import.meta.env.VITE_EMAILJS_USER_ID,
+  };
+
+  const validateForm = () => {
+    const newErrors = {};
+    if (!formData.name.trim()) newErrors.name = "Name is required.";
+
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required.";
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = "Email is invalid.";
+    }
+
+    if (!formData.message.trim()) newErrors.message = "Message is required.";
+
+    return newErrors;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form Data Submitted:", formData);
-    toast.success("Thank you for reaching out. We'll get back to you soon.");
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      company: "",
-      message: "",
+
+    const newErrors = validateForm();
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+
+    console.log(formParams.emailJsServiceId, formParams.emailJsTemplateId, {
+      publicKey: formParams.emailJsUserId,
     });
+
+    emailjs
+      .send(
+        formParams.emailJsServiceId,
+        formParams.emailJsTemplateId,
+        formData,
+        { publicKey: formParams.emailJsUserId },
+      )
+      .then(
+        (res) => {
+          console.log("SUCCESS!", res.status, res.text);
+          toast.success(
+            "Thank you for reaching out. We'll get back to you soon.",
+          );
+          setFormData({
+            name: "",
+            email: "",
+            phone: "",
+            company: "",
+            message: "",
+          });
+        },
+        (err) => {
+          console.error("FAILED...", err);
+          toast.error("Failed to send message. Please try again later.");
+        },
+      );
   };
 
   return (
@@ -143,6 +194,9 @@ const ContactPage = () => {
                   onChange={handleChange}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition"
                 />
+                {errors.name && (
+                  <p className="text-red-500 text-sm mt-1">{errors.name}</p>
+                )}
               </div>
               <div>
                 <label
@@ -160,6 +214,9 @@ const ContactPage = () => {
                   onChange={handleChange}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition"
                 />
+                {errors.email && (
+                  <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+                )}
               </div>
               <div>
                 <label
@@ -176,6 +233,9 @@ const ContactPage = () => {
                   onChange={handleChange}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition"
                 />
+                {errors.phone && (
+                  <p className="text-red-500 text-sm mt-1">{errors.phone}</p>
+                )}
               </div>
               <div>
                 <label
@@ -192,6 +252,9 @@ const ContactPage = () => {
                   onChange={handleChange}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition"
                 />
+                {errors.company && (
+                  <p className="text-red-500 text-sm mt-1">{errors.company}</p>
+                )}
               </div>
               <div>
                 <label
@@ -210,6 +273,9 @@ const ContactPage = () => {
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition resize-none"
                   placeholder="Tell us about your business idea or partnership proposal..."
                 />
+                {errors.message && (
+                  <p className="text-red-500 text-sm mt-1">{errors.message}</p>
+                )}
               </div>
               <button
                 type="submit"
