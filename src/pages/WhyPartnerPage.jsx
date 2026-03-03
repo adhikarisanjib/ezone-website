@@ -1,5 +1,6 @@
 import { MapPin, DollarSign, Users, TrendingUp } from "lucide-react";
 import { Link } from "react-router-dom";
+import SEO from "../components/SEO";
 
 const WhyPartnerPage = () => {
   const benefits = [
@@ -31,6 +32,12 @@ const WhyPartnerPage = () => {
 
   return (
     <div className="pt-24 pb-20">
+      <SEO
+        title="Why Partner With Us - Strategic Business Partnerships | Ezone Group"
+        description="Discover the benefits of partnering with Ezone Group. We offer strategic location access, investment support, experienced management, and long-term partnership focus to help your business succeed."
+        keywords="business partnership benefits, strategic partnerships, investment support, land availability, business management, long-term partnerships"
+        canonicalUrl="/why-partner"
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h1 className="text-5xl font-bold text-gray-900 mb-6">

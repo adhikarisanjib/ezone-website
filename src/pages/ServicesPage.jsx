@@ -1,4 +1,5 @@
-import { DollarSign, Handshake, MapPin, Briefcase } from "lucide-react";
+import { DollarSign, Handshake, MapPin, Briefcase, Megaphone } from "lucide-react";
+import SEO from "../components/SEO";
 
 const ServicesPage = () => {
   const services = [
@@ -26,10 +27,22 @@ const ServicesPage = () => {
       description:
         "From concept to execution, we support the planning, development, and management of business projects.",
     },
+    {
+      icon: Megaphone,
+      title: "Marketing & Brand Development",
+      description:
+        "Comprehensive marketing services to help your business reach its target audience, build brand awareness, and drive growth through strategic campaigns.",
+    },
   ];
 
   return (
     <div className="pt-24 pb-20">
+      <SEO
+        title="Our Services - Business Investment, Partnerships & Marketing | Ezone Group"
+        description="Comprehensive business support services including investment funding, strategic partnerships, land infrastructure, project development, and marketing services to help your business grow."
+        keywords="business investment, business funding, strategic partnerships, land infrastructure, project development, marketing services, business support"
+        canonicalUrl="/services"
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h1 className="text-5xl font-bold text-gray-900 mb-6">What We Do</h1>

@@ -9,6 +9,7 @@ import WhyPartnerPage from "./pages/WhyPartnerPage";
 import ContactPage from "./pages/ContactPage";
 import AboutPage from "./pages/AboutPage";
 import IndustryPage from "./pages/IndustriesPage";
+import NotFound from "./pages/NotFound";
 import Layout from "./Layout";
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
             <Route path="/why-partner" element={<WhyPartnerPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/industries" element={<IndustryPage />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
           <ToastContainer />
         </Layout>

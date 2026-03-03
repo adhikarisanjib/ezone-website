@@ -5,8 +5,10 @@ import {
   Factory,
   Home,
   Lightbulb,
+  Megaphone,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import SEO from "../components/SEO";
 
 const IndustryPage = () => {
   const industries = [
@@ -36,6 +38,11 @@ const IndustryPage = () => {
       description: "Residential and commercial property development",
     },
     {
+      icon: Megaphone,
+      title: "Marketing & Digital Services",
+      description: "Brand development, digital marketing, and promotional campaigns",
+    },
+    {
       icon: Lightbulb,
       title: "Emerging Business Opportunities",
       description: "Innovative ventures and new market opportunities",
@@ -44,6 +51,12 @@ const IndustryPage = () => {
 
   return (
     <div className="pt-24 pb-20">
+      <SEO
+        title="Industries We Serve - Entertainment, Hospitality, Real Estate & More | Ezone Group"
+        description="Explore the diverse industries we support including entertainment, retail, hospitality, manufacturing, real estate, marketing services, and emerging business opportunities."
+        keywords="entertainment business, commercial retail, hospitality industry, manufacturing ventures, real estate development, marketing services, business opportunities"
+        canonicalUrl="/industries"
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h1 className="text-5xl font-bold text-gray-900 mb-6">

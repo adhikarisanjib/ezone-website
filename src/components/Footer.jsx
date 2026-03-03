@@ -8,9 +8,11 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           <div>
-            <h3 className="text-2xl font-bold text-emerald-400 mb-4">
-              EzoneGroup
-            </h3>
+            <img 
+              src="/icon_white.png" 
+              alt="EzoneGroup Logo" 
+              className="h-20 w-auto mb-2"
+            />
             <p className="text-gray-400 text-sm leading-relaxed">
               Building businesses and creating opportunities across multiple
               industries.

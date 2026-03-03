@@ -2,6 +2,7 @@ import { useState } from "react";
 import emailjs from "@emailjs/browser";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
 import { toast } from "react-toastify";
+import SEO from "../components/SEO";
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -81,6 +82,12 @@ const ContactPage = () => {
 
   return (
     <div className="pt-24 pb-20">
+      <SEO
+        title="Contact Us - Get in Touch with Ezone Group | UK & Nepal Offices"
+        description="Have a business idea or looking for a strategic partner? Contact Ezone Group. Our offices in UK (Camberley) and Nepal (Kathmandu) are ready to help you explore business opportunities."
+        keywords="contact ezone group, business inquiry, partnership contact, UK office, Nepal office, business proposal, investment inquiry"
+        canonicalUrl="/contact"
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h1 className="text-5xl font-bold text-gray-900 mb-6">Contact Us</h1>

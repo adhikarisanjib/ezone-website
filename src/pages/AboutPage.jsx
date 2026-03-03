@@ -1,8 +1,15 @@
 import { Target, Eye, Users } from "lucide-react";
+import SEO from "../components/SEO";
 
 const AboutPage = () => {
   return (
     <div className="pt-24 pb-20">
+      <SEO
+        title="About Us - Ezone Group | Trusted Business Partners"
+        description="Ezone Group of Company Limited is established to support, invest in, and develop business opportunities across various sectors. Learn about our vision, mission, and partnership-driven approach."
+        keywords="about ezone group, business partners, investment company, business development, strategic partnerships, Nepal UK business"
+        canonicalUrl="/about"
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-5xl font-bold text-gray-900 mb-8 text-center">

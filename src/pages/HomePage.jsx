@@ -1,9 +1,48 @@
 import { ArrowRight, Building2, Handshake, TrendingUp } from "lucide-react";
 import { Link } from "react-router-dom";
+import SEO from "../components/SEO";
 
 const HomePage = () => {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Ezone Group of Company Limited",
+    url: "https://ezonegroup.com",
+    logo: "https://ezonegroup.com/ezone_icon.png",
+    description:
+      "A diversified business group providing investment, land, and strategic partnerships to entrepreneurs and enterprises across multiple industries.",
+    address: [
+      {
+        "@type": "PostalAddress",
+        streetAddress: "2 The Parade Firmley",
+        addressLocality: "Camberley",
+        addressCountry: "United Kingdom",
+      },
+      {
+        "@type": "PostalAddress",
+        streetAddress: "Kapan 10, Budhanilkantha",
+        addressLocality: "Kathmandu",
+        addressCountry: "Nepal",
+      },
+    ],
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: "+44-2070606117",
+      contactType: "Customer Service",
+      email: "contact@ezonegroup.com",
+    },
+    sameAs: [],
+  };
+
   return (
     <div>
+      <SEO
+        title="Ezone Group - Building Businesses, Creating Opportunities"
+        description="We are a diversified business group providing investment, land, and strategic partnerships to entrepreneurs and enterprises across multiple industries including entertainment, hospitality, manufacturing, real estate, and marketing."
+        keywords="business investment, strategic partnerships, land development, business funding, commercial real estate, marketing services, Nepal business, UK investment, business opportunities"
+        canonicalUrl="/"
+        structuredData={structuredData}
+      />
       <section className="relative bg-linear-to-br from-emerald-50 via-white to-slate-50 pt-32 pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">

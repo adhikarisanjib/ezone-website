@@ -1,0 +1,9 @@
+# robots.txt for Ezone Group
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://ezonegroup.com/sitemap.xml
+
+# Crawl-delay for bots (optional)
+Crawl-delay: 10
