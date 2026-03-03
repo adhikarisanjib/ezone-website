@@ -8,7 +8,7 @@ const HomePage = () => {
     "@type": "Organization",
     name: "Ezone Group of Company Limited",
     url: "https://ezonegroup.com",
-    logo: "https://ezonegroup.com/ezone_icon.png",
+    logo: "https://ezonegroup.com/icon_cropped.png",
     description:
       "A diversified business group providing investment, land, and strategic partnerships to entrepreneurs and enterprises across multiple industries.",
     address: [
